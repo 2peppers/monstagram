@@ -125,4 +125,4 @@ try:
 except ImportError:
     pass
 
-# LOGIN_PA
+UPLOAD_PATH = 'uploads/'
