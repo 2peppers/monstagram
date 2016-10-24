@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Main.apps.MainConfig',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,6 +121,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 try:
-    import local_settings
+    from monstagram.local_settings import *
 except ImportError:
     pass
+
+# LOGIN_PA
