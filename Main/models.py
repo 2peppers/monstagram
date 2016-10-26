@@ -12,7 +12,8 @@ class Post(models.Model):
     image = models.ImageField(upload_to=UPLOAD_PATH, blank=True, null=True)
     comment = models.TextField(default='', max_length=2000)
     author = models.ForeignKey(User, related_name='posts')
-    added_at = models.DateTimeField(auto_created=True)
+    added_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
 
     @property
     def image_path(self):
