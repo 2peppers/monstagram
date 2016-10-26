@@ -30,7 +30,7 @@ class Post(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(User, related_name='likes')
     post = models.ForeignKey(Post, related_name='likes')
-    added_at = models.DateTimeField(auto_created=True)
+    added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "Like for '{}' by '{}'".format(self.post.title, self.user.username)
