@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'Main.apps.MainConfig',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Main.apps.MainConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -127,3 +127,6 @@ except ImportError:
     pass
 
 UPLOAD_PATH = 'uploads/'
+
+LOGIN_URL = 'login/'
+LOGIN_REDIRECT_URL = '/'

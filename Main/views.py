@@ -1,10 +1,12 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.models import User
 
 
 from Main.models import Post, Like
 
-
+@login_required
 def main(request):
     all_posts = Post.objects.all()
     liked_posts_ids = [like.post.id for like in Like.objects.filter(user=request.user) if like.post in all_posts]
