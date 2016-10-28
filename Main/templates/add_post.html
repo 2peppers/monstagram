@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Add new Post{% endblock %}
+
+{% block contents %}
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h2>Add new Post
+            </h2>
+        </div>
+    </div>
+
+    {% if message %}<div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-{% if message_type == 'danger' %}danger{% else %}info{% endif %}">{{ message|safe }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row" style="padding: 10px;">
+        <div class="col-sm-4 col-sm-offset-3">
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" name="title" required>
+              </div>
+              <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea class="form-control" rows="3" name="comments" id="comments"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" class="form-control" id="url" placeholder="URL for new cat!" name="url">
+              </div>
+              <div class="form-group">
+                <label for="image_file">File input</label>
+                <input type="file" id="image_file" name="image_file">
+              </div>
+              <button type="submit" class="btn btn-default">Add new Kitty!</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
